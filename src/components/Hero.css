@@ -173,7 +173,7 @@
   }
 
   .hero__image {
-    object-position: 70% top;
+    object-position: 82% top;
   }
 
   .hero__overlay {
@@ -205,6 +205,10 @@
 }
 
 @media (max-width: 480px) {
+  .hero__image {
+    object-position: 90% top;
+  }
+
   .hero__name-line--indent {
     padding-left: 1.5rem;
   }
