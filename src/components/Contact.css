@@ -1,0 +1,210 @@
+.contact {
+  position: relative;
+  padding: 8rem 0 0;
+  background: var(--dark);
+  overflow: hidden;
+}
+
+/* Big background text */
+.contact__bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: var(--font-serif);
+  font-size: clamp(8rem, 20vw, 22rem);
+  font-weight: 300;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(139, 46, 46, 0.08);
+  white-space: nowrap;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.02em;
+}
+
+.contact__inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+  padding-bottom: 6rem;
+}
+
+.contact__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5.5vw, 5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-top: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.contact__heading em {
+  font-style: italic;
+  color: var(--gray-light);
+}
+
+.contact__blurb {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.8;
+  color: var(--gray);
+  font-weight: 300;
+  max-width: 500px;
+  margin-bottom: 3rem;
+}
+
+/* ---- Contact Links ---- */
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  background: rgba(139, 46, 46, 0.1);
+  border: 1px solid rgba(139, 46, 46, 0.1);
+}
+
+.contact__link {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1.5rem 2rem;
+  background: var(--dark);
+  text-decoration: none;
+  transition: background var(--transition);
+  group: true;
+}
+
+.contact__link:hover {
+  background: var(--dark-2);
+}
+
+.contact__link-icon {
+  width: 44px;
+  height: 44px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: border-color var(--transition), background var(--transition);
+}
+
+.contact__link-icon svg {
+  width: 18px;
+  height: 18px;
+  color: var(--gray-light);
+  transition: color var(--transition-fast);
+}
+
+.contact__link:hover .contact__link-icon {
+  border-color: var(--red);
+  background: rgba(139, 46, 46, 0.15);
+}
+
+.contact__link:hover .contact__link-icon svg {
+  color: var(--white);
+}
+
+.contact__link-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.contact__link-label {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gray);
+}
+
+.contact__link-value {
+  font-family: var(--font-sans);
+  font-size: clamp(0.8125rem, 1.2vw, 1rem);
+  font-weight: 300;
+  color: var(--white);
+  transition: color var(--transition-fast);
+  letter-spacing: 0.01em;
+}
+
+.contact__link:hover .contact__link-value {
+  color: var(--white-pure);
+}
+
+.contact__link-arrow {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+
+.contact__link-arrow svg {
+  width: 16px;
+  height: 16px;
+  color: var(--gray);
+  transition: color var(--transition-fast);
+}
+
+.contact__link:hover .contact__link-arrow {
+  transform: translate(2px, -2px);
+}
+
+.contact__link:hover .contact__link-arrow svg {
+  color: var(--red-light);
+}
+
+/* ---- Footer ---- */
+.contact__footer {
+  border-top: 1px solid rgba(139, 46, 46, 0.12);
+  padding: 1.5rem 0;
+  margin-top: 0;
+}
+
+.contact__footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.contact__footer-copy {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.contact__footer-back {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray);
+  transition: color var(--transition-fast);
+}
+
+.contact__footer-back:hover {
+  color: var(--white);
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 768px) {
+  .contact {
+    padding: 5rem 0 0;
+  }
+
+  .contact__link {
+    padding: 1.25rem 1.25rem;
+    gap: 1rem;
+  }
+
+  .contact__footer-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+
+  .contact__bg-text {
+    font-size: clamp(6rem, 30vw, 12rem);
+  }
+}

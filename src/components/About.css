@@ -1,0 +1,126 @@
+.about {
+  padding: 8rem 0;
+  background: var(--black);
+}
+
+.about__header {
+  margin-bottom: 4rem;
+}
+
+.about__heading {
+  font-family: var(--font-serif);
+  font-size: clamp(2.5rem, 5vw, 4.5rem);
+  font-weight: 300;
+  color: var(--white);
+  line-height: 1.05;
+  margin-top: 0.5rem;
+}
+
+.about__heading em {
+  font-style: italic;
+  color: var(--gray-light);
+}
+
+/* ---- Bio ---- */
+.about__bio-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem 5rem;
+  margin-bottom: 6rem;
+  max-width: 960px;
+}
+
+.about__bio {
+  font-family: var(--font-sans);
+  font-size: clamp(0.875rem, 1.1vw, 1rem);
+  line-height: 1.85;
+  color: var(--gray-light);
+  font-weight: 300;
+}
+
+/* ---- Skills ---- */
+.about__skills-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  border-top: 1px solid rgba(139, 46, 46, 0.15);
+  padding-top: 4rem;
+}
+
+.skills-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.125rem;
+  margin-top: 1rem;
+}
+
+/* ---- Skill Row ---- */
+.skill-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.skill-row__info {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.skill-row__name {
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 300;
+  color: var(--gray-lighter);
+  letter-spacing: 0.03em;
+}
+
+.skill-row__pct {
+  font-family: var(--font-sans);
+  font-size: 0.625rem;
+  font-weight: 400;
+  color: var(--gray);
+  letter-spacing: 0.05em;
+}
+
+.skill-row__track {
+  width: 100%;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.08);
+  overflow: hidden;
+}
+
+.skill-row__fill {
+  height: 100%;
+  background: linear-gradient(to right, var(--red-muted), var(--red-light));
+  transform-origin: left;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 900px) {
+  .about__bio-wrap {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    max-width: 100%;
+  }
+
+  .about__skills-wrap {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 5rem 0;
+  }
+
+  .about__bio-wrap {
+    margin-bottom: 4rem;
+  }
+}

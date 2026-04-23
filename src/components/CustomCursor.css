@@ -1,0 +1,61 @@
+.cursor-dot,
+.cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 99999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  will-change: transform;
+}
+
+.cursor-dot--visible,
+.cursor-ring--visible {
+  opacity: 1;
+}
+
+/* The small dot */
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--white-pure);
+  border-radius: 50%;
+  margin-left: -3px;
+  margin-top: -3px;
+  transition: opacity 0.3s ease, transform 0.1s ease, width 0.25s ease, height 0.25s ease, background 0.25s ease;
+}
+
+.cursor-dot--hover {
+  width: 8px;
+  height: 8px;
+  background: var(--red-light);
+  margin-left: -4px;
+  margin-top: -4px;
+}
+
+/* The trailing ring */
+.cursor-ring {
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(245, 245, 240, 0.5);
+  border-radius: 50%;
+  margin-left: -18px;
+  margin-top: -18px;
+  transition: opacity 0.3s ease, width 0.35s ease, height 0.35s ease, border-color 0.35s ease, margin 0.35s ease;
+}
+
+.cursor-ring--hover {
+  width: 56px;
+  height: 56px;
+  margin-left: -28px;
+  margin-top: -28px;
+  border-color: rgba(176, 64, 64, 0.6);
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot,
+  .cursor-ring {
+    display: none;
+  }
+}
