@@ -120,7 +120,6 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
               <span key={tag} className="project-card__tag">{tag}</span>
             ))}
           </div>
-          <span className="project-card__year">{project.year}</span>
         </div>
 
         <div className="project-card__bar" />
