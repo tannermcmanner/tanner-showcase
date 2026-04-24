@@ -1,5 +1,5 @@
 import { useRef } from 'react'
-import { motion, useInView } from 'framer-motion'
+import { motion, useInView, useScroll, useTransform } from 'framer-motion'
 import './About.css'
 
 const technicalSkills = [
@@ -29,6 +29,13 @@ export default function About() {
   const ref = useRef<HTMLElement>(null)
   const isInView = useInView(ref, { once: true, margin: '-8%' })
 
+  const imageRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: imageRef,
+    offset: ['start end', 'end start'],
+  })
+  const imageY = useTransform(scrollYProgress, [0, 1], ['-12%', '12%'])
+
   const bioVariants = {
     hidden: { opacity: 0, y: 40 },
     visible: (i: number) => ({
@@ -41,43 +48,72 @@ export default function About() {
   return (
     <section id="about" className="about" ref={ref}>
       <div className="container">
-        {/* Header */}
-        <motion.div
-          className="about__header"
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-          <span className="section-label">About Me</span>
-          <h2 className="about__heading">Crafting<br /><em>digital experiences</em></h2>
-        </motion.div>
-
-        {/* Bio */}
-        <div className="about__bio-wrap">
-          <motion.p
-            className="about__bio"
-            custom={0}
+        {/* Header + Bio + Image */}
+        <div className="about__content">
+          <div className="about__left">
+            <motion.div
+              className="about__header"
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+            >
+              <span className="section-label">About Me</span>
+              <h2 className="about__heading">Crafting<br /><em>digital experiences</em></h2>
+            </motion.div>
+            <div className="about__bio-wrap">
+              <motion.p
+                className="about__bio"
+                custom={0}
+                variants={bioVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+              >
+                My name is Tanner McNatt, and I am a web developer with 3 years of experience creating
+                engaging, responsive websites. I am proficient in frontend development with additional
+                experience in backend. Initially self-taught, I am now pursuing a Bachelor's in
+                Software Engineering to further elevate my skills and output.
+              </motion.p>
+              <motion.p
+                className="about__bio"
+                custom={1}
+                variants={bioVariants}
+                initial="hidden"
+                animate={isInView ? 'visible' : 'hidden'}
+              >
+                My background in content creation and performing, including photography, video editing,
+                and acting, has given me a deep appreciation for creating beautiful things. That same
+                love for the craft has carried over into my work as a developer and fueled my passion
+                for building visually stunning and engaging web applications.
+              </motion.p>
+            </div>
+          </div>
+          <motion.div
+            ref={imageRef}
+            className="about__bio-image-wrap"
+            custom={2}
             variants={bioVariants}
             initial="hidden"
             animate={isInView ? 'visible' : 'hidden'}
+            style={{ y: imageY }}
           >
-            My name is Tanner McNatt, and I am a web developer with 3 years of experience creating
-            engaging, responsive websites. I am proficient in frontend development with additional
-            experience in backend. Initially self-taught, I am now pursuing a Bachelor's in
-            Software Engineering to further elevate my skills and output.
-          </motion.p>
-          <motion.p
-            className="about__bio"
-            custom={1}
-            variants={bioVariants}
-            initial="hidden"
-            animate={isInView ? 'visible' : 'hidden'}
-          >
-            My background in content creation and performing, including photography, video editing,
-            and acting, has given me a deep appreciation for creating beautiful things. That same
-            love for the craft has carried over into my work as a developer and fueled my passion
-            for building visually stunning and engaging web applications.
-          </motion.p>
+            <img
+              src="/about_me.jpg"
+              alt="Tanner McNatt"
+              className="about__bio-image"
+            />
+            <svg
+              className="about__bio-image-corners"
+              viewBox="0 0 332 432"
+              preserveAspectRatio="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              {/* Top-left: horizontal square end, vertical tapers to point at mid-height */}
+              <polygon points="0,0 91,0 91,6 6,6 6,216 0,6" fill="currentColor" />
+              {/* Bottom-right: mirrored */}
+              <polygon points="332,432 241,432 241,426 326,426 326,216 332,426" fill="currentColor" />
+            </svg>
+          </motion.div>
         </div>
 
         {/* Skills */}

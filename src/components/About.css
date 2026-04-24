@@ -4,7 +4,7 @@
 }
 
 .about__header {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .about__heading {
@@ -21,13 +21,24 @@
   color: var(--gray-light);
 }
 
-/* ---- Bio ---- */
-.about__bio-wrap {
+/* ---- Content grid (header+bio left, image right) ---- */
+.about__content {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem 5rem;
+  grid-template-columns: 1fr auto;
+  gap: 5rem;
+  align-items: center;
   margin-bottom: 6rem;
-  max-width: 960px;
+}
+
+.about__left {
+  display: flex;
+  flex-direction: column;
+}
+
+.about__bio-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .about__bio {
@@ -36,6 +47,112 @@
   line-height: 1.85;
   color: var(--gray-light);
   font-weight: 300;
+}
+
+@media (min-width: 901px) {
+  .about__bio {
+    font-size: clamp(1rem, 1.25vw, 1.175rem);
+  }
+}
+
+.about__bio-image-wrap {
+  flex-shrink: 0;
+  position: relative;
+}
+
+.about__bio-image-corners {
+  position: absolute;
+  top: -16px;
+  left: -16px;
+  width: calc(100% + 32px);
+  height: calc(100% + 32px);
+  color: var(--red);
+  pointer-events: none;
+  overflow: visible;
+}
+
+.about__bio-image {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+  -webkit-mask-image:
+    linear-gradient(
+      240deg,
+      transparent 0px,
+      transparent 20px,
+      white 20px,
+      white 30px,
+      transparent 30px,
+      transparent 40px,
+      white 40px,
+      white 52px,
+      transparent 52px,
+      transparent 58px,
+      white 58px,
+      white 70px,
+      transparent 70px,
+      transparent 74px,
+      white 74px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0px,
+      transparent 20px,
+      white 20px,
+      white 30px,
+      transparent 30px,
+      transparent 40px,
+      white 40px,
+      white 52px,
+      transparent 52px,
+      transparent 58px,
+      white 58px,
+      white 70px,
+      transparent 70px,
+      transparent 74px,
+      white 74px
+    );
+  mask-image:
+    linear-gradient(
+      240deg,
+      transparent 0px,
+      transparent 20px,
+      white 20px,
+      white 30px,
+      transparent 30px,
+      transparent 40px,
+      white 40px,
+      white 52px,
+      transparent 52px,
+      transparent 58px,
+      white 58px,
+      white 70px,
+      transparent 70px,
+      transparent 74px,
+      white 74px
+    ),
+    linear-gradient(
+      60deg,
+      transparent 0px,
+      transparent 20px,
+      white 20px,
+      white 30px,
+      transparent 30px,
+      transparent 40px,
+      white 40px,
+      white 52px,
+      transparent 52px,
+      transparent 58px,
+      white 58px,
+      white 70px,
+      transparent 70px,
+      transparent 74px,
+      white 74px
+    );
+  -webkit-mask-composite: source-in;
+  mask-composite: intersect;
 }
 
 /* ---- Skills ---- */
@@ -73,10 +190,19 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 900px) {
-  .about__bio-wrap {
+  .about__content {
     grid-template-columns: 1fr;
-    gap: 1.5rem;
-    max-width: 100%;
+  }
+
+  .about__bio-image-wrap {
+    max-width: 380px;
+    margin: 0 auto;
+  }
+
+  .about__bio-image {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 3 / 4;
   }
 
   .about__skills-wrap {
@@ -88,9 +214,5 @@
 @media (max-width: 768px) {
   .about {
     padding: 5rem 0;
-  }
-
-  .about__bio-wrap {
-    margin-bottom: 4rem;
   }
 }
