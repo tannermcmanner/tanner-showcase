@@ -68,7 +68,7 @@ export default function About() {
                 initial="hidden"
                 animate={isInView ? 'visible' : 'hidden'}
               >
-                My name is Tanner McNatt, and I am a web developer with 3 years of experience creating
+                My name is Tanner McNatt, and I am a web developer with three years of experience creating
                 engaging, responsive websites. I am proficient in frontend development with additional
                 experience in backend. Initially self-taught, I am now pursuing a Bachelor's in
                 Software Engineering to further elevate my skills and output.
