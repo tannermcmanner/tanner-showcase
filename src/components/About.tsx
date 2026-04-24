@@ -124,44 +124,18 @@ function SkillsBlock({
       transition={{ duration: 0.8, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <span className="section-label">{label}</span>
-      <div className="skills-list">
+      <div className="skills-tags">
         {skills.map((skill, i) => (
-          <SkillRow key={skill.name} skill={skill} index={i} isInView={isInView} delay={delay} />
+          <motion.span
+            key={skill.name}
+            className="skill-tag"
+            initial={{ opacity: 0, y: 10 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.4, delay: delay + 0.25 + i * 0.05, ease: [0.25, 0.46, 0.45, 0.94] }}
+          >
+            {skill.name}
+          </motion.span>
         ))}
-      </div>
-    </motion.div>
-  )
-}
-
-function SkillRow({
-  skill,
-  index,
-  isInView,
-  delay,
-}: {
-  skill: Skill
-  index: number
-  isInView: boolean
-  delay: number
-}) {
-  return (
-    <motion.div
-      className="skill-row"
-      initial={{ opacity: 0, x: -20 }}
-      animate={isInView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: delay + 0.3 + index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
-    >
-      <div className="skill-row__info">
-        <span className="skill-row__name">{skill.name}</span>
-        <span className="skill-row__pct">{skill.level}%</span>
-      </div>
-      <div className="skill-row__track">
-        <motion.div
-          className="skill-row__fill"
-          initial={{ scaleX: 0 }}
-          animate={isInView ? { scaleX: skill.level / 100 } : { scaleX: 0 }}
-          transition={{ duration: 1, delay: delay + 0.4 + index * 0.06, ease: [0.25, 0.46, 0.45, 0.94] }}
-        />
       </div>
     </motion.div>
   )

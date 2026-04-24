@@ -40,7 +40,7 @@ export default function Contact() {
           </motion.h2>
 
           <motion.p className="contact__blurb" variants={itemVariants}>
-            Whether you have a project in mind, a question, or just want to connect —
+            Whether you have a project in mind, a question, or just want to connect,
             I'd love to hear from you. I'm always open to new opportunities and
             collaborations.
           </motion.p>

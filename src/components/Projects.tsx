@@ -11,7 +11,7 @@ const projects = [
     description:
       'A premium eyewear e-commerce experience. Full-featured storefront with product catalog, filtering, cart, wishlist, and user authentication.',
     url: 'https://clearview-gamma-bice.vercel.app/',
-    tags: ['React', 'TypeScript', 'E-Commerce'],
+    tags: ['Angular', 'TypeScript', 'E-Commerce'],
     year: '2024',
   },
   {
@@ -22,7 +22,7 @@ const projects = [
     description:
       'A full-featured business admin dashboard for Urban Protein Project. Manages customers, products, inventory, orders, and provides rich sales analytics.',
     url: 'https://upp-gold.vercel.app/dashboard',
-    tags: ['React', 'TypeScript', 'Dashboard'],
+    tags: ['Angular', 'TypeScript', 'Dashboard'],
     year: '2025',
   },
   {
