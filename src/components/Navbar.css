@@ -83,7 +83,7 @@
   padding: 4px;
   background: none;
   border: none;
-  cursor: pointer;
+  cursor: none;
 }
 
 .navbar__hamburger span {
